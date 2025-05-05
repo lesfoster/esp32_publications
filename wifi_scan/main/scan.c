@@ -108,29 +108,9 @@ int setup_led_pin(int gpio_num)
 // Sets up output LED and input Button.
 int setup_io_pins(void)
 {
-    // FROM gpio example:
-    //zero-initialize the config structure.
-    // gpio_config_t io_conf = {};
-    // //disable interrupt
-    // io_conf.intr_type = GPIO_INTR_DISABLE;
-    // //set as output mode
-    // io_conf.mode = GPIO_MODE_OUTPUT;
-    // //bit mask of the pins that you want to set,e.g.GPIO18/19
-    // io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
-    // //disable pull-down mode
-    // io_conf.pull_down_en = 0;
-    // //disable pull-up mode
-    // io_conf.pull_up_en = 0;
-    // //configure GPIO with the given settings
-    // gpio_config(&io_conf);
-
     esp_rom_gpio_pad_select_gpio(LED_RED);
     esp_rom_gpio_pad_select_gpio(LED_YELLOW);
     esp_rom_gpio_pad_select_gpio(LED_GREEN);
-
-    // gpio_set_drive_capability(LED_RED, GPIO_DRIVE_CAP_3);
-    // gpio_set_drive_capability(LED_YELLOW, GPIO_DRIVE_CAP_3);
-    // gpio_set_drive_capability(LED_GREEN, GPIO_DRIVE_CAP_3);
 
     // LED:Red
     if (setup_led_pin(LED_RED) != ESP_OK)
